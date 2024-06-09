@@ -6,7 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { databaseEnvironmentConfig } from './configs/environment-config';
 import { validationSchema } from './configs/config-validation';
-import {MembershipModule} from "./membership/memebership.module";
+import { MembershipModule } from './membership/memebership.module';
 
 @Module({
   imports: [

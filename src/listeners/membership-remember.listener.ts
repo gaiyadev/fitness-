@@ -26,7 +26,7 @@ export class MembershipRememberListener {
 
     this.emailHelperService.sendEmailNotification(
       email,
-      `Reminder ${templateData.firstName}`,
+      `Reminder for ${templateData.firstName}`,
       htmlContent,
     );
   }
