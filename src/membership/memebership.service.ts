@@ -9,17 +9,14 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
-import { CreateMembershipDto } from './dto/create-memebership.dto';
-import { membersRepository } from '../configs/constant';
-import { Membership } from './entities/memebership.entity';
-import { PaginationLink } from '../pagination/pagination-link';
-import { Paginate } from '../pagination/paginate';
-import {
-  ApiResponse,
-  createApiResponse,
-} from '../interfaces/responses/create-api-response';
-import { UpdateMembershipDto } from './dto/update-memebership.dto';
-import { Op } from 'sequelize';
+import {CreateMembershipDto} from './dto/create-memebership.dto';
+import {membersRepository} from '../configs/constant';
+import {Membership} from './entities/memebership.entity';
+import {PaginationLink} from '../pagination/pagination-link';
+import {Paginate} from '../pagination/paginate';
+import {ApiResponse, createApiResponse,} from '../interfaces/responses/create-api-response';
+import {UpdateMembershipDto} from './dto/update-memebership.dto';
+import {Op} from 'sequelize';
 
 @Injectable()
 export class MembershipService {
@@ -64,34 +61,20 @@ export class MembershipService {
     }
   }
 
-  async findDueMemberships(chunkSize = 100): Promise<Membership[]> {
+  async findDueMemberships(): Promise<Membership[]> {
     const startOfToday = new Date();
     startOfToday.setHours(0, 0, 0, 0);
 
     const endOfToday = new Date();
     endOfToday.setHours(23, 59, 59, 999);
-
-    let offset = 0;
-    let memberships: Membership[] = [];
-    let chunk: Membership[];
-
-    do {
-      chunk = await this.memberRepository.findAll<Membership>({
-        where: {
-          dueDate: {
-            [Op.between]: [startOfToday, endOfToday],
-          },
-          isFirstMonth: true,
+    return await this.memberRepository.findAll<Membership>({
+      where: {
+        dueDate: {
+          [Op.between]: [startOfToday, endOfToday],
         },
-        limit: chunkSize,
-        offset: offset,
-      });
-
-      memberships = memberships.concat(chunk);
-      offset += chunkSize;
-    } while (chunk.length === chunkSize);
-
-    return memberships;
+        isFirstMonth: true,
+      },
+    });
   }
 
   async create(

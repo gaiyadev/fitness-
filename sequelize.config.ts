@@ -16,7 +16,7 @@ export const databaseDevelopmentConfig: SequelizeModuleOptions = {
   define: {
     timestamps: true,
   },
-  models: [Membership],
+  models: [],
   logging: true,
 };
 
