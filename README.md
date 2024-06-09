@@ -57,7 +57,20 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+# Docs
+[http://localhost:3000/api/docs](http://localhost:3000/api/docs)
 
+
+# Design Choices
+
+1. NestJS: Chosen for its modular architecture, dependency injection, and strong typing with TypeScript.
+2. Sequelize: Selected as the ORM for its support of various SQL databases and active community.
+3. PostgreSQL: Used as the database for its robustness and wide adoption.
+
+# Assumptions
+
+1. The database connection settings are correctly configured in app.module.ts.
+2. Email notifications are sent using a mock or a real SMTP service like Mailtrap.
 # Sequelize Migrations and Seeds Management
 
 This repository contains Sequelize migration and seed management scripts for database management.

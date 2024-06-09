@@ -12,11 +12,10 @@ export class MembershipCron {
     private eventEmitter: EventEmitter2,
   ) {}
 
-  @Cron(CronExpression.EVERY_30_SECONDS)
+  @Cron(CronExpression.EVERY_DAY_AT_2AM)
   async handleCron() {
     const dueMemberships = await this.membershipService.findDueMemberships();
     for (const membership of dueMemberships) {
-      console.log(membership);
       const templateData = {
         firstName: membership.firstName,
         isFirstMonth: membership.isFirstMonth,
