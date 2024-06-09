@@ -10,5 +10,6 @@ export const emailFromName = 'fitness';
 
 // Events
 export const membershipReminder = 'membership.reminder';
+
 // Repository
 export const membersRepository = 'MEMBERS_REPOSITORY';

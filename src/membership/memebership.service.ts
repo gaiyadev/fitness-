@@ -9,14 +9,17 @@ import {
   Logger,
   NotFoundException,
 } from '@nestjs/common';
-import {CreateMembershipDto} from './dto/create-memebership.dto';
-import {membersRepository} from '../configs/constant';
-import {Membership} from './entities/memebership.entity';
-import {PaginationLink} from '../pagination/pagination-link';
-import {Paginate} from '../pagination/paginate';
-import {ApiResponse, createApiResponse,} from '../interfaces/responses/create-api-response';
-import {UpdateMembershipDto} from './dto/update-memebership.dto';
-import {Op} from 'sequelize';
+import { CreateMembershipDto } from './dto/create-memebership.dto';
+import { membersRepository } from '../configs/constant';
+import { Membership } from './entities/memebership.entity';
+import { PaginationLink } from '../pagination/pagination-link';
+import { Paginate } from '../pagination/paginate';
+import {
+  ApiResponse,
+  createApiResponse,
+} from '../interfaces/responses/create-api-response';
+import { UpdateMembershipDto } from './dto/update-memebership.dto';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class MembershipService {

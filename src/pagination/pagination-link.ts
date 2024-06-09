@@ -2,12 +2,14 @@ import * as dotenv from 'dotenv';
 import { development, local } from '../configs/constant';
 dotenv.config();
 
-const apiBaseUrl =
-  process.env.NODE_ENV === development
-    ? process.env.WN_BACKEND_DEV_URL
-    : process.env.NODE_ENV === local
-      ? process.env.WN_BACKEND_LOCAL_URL
-      : process.env.WN_BACKEND_LIVE_URL;
+// const apiBaseUrl =
+//   process.env.NODE_ENV === development
+//     ? process.env.WN_BACKEND_DEV_URL
+//     : process.env.NODE_ENV === local
+//       ? process.env.WN_BACKEND_LOCAL_URL
+//       : process.env.WN_BACKEND_LIVE_URL;
+
+const apiBaseUrl = 'localhost:3000/api/v1';
 
 export class PaginationLink {
   first: string = '';
