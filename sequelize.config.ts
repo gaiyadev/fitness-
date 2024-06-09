@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 import { Dialect } from 'sequelize/types';
+import {Membership} from "./src/membership/entities/memebership.entity";
 dotenv.config();
 
 export const databaseDevelopmentConfig: SequelizeModuleOptions = {
@@ -15,7 +16,7 @@ export const databaseDevelopmentConfig: SequelizeModuleOptions = {
   define: {
     timestamps: true,
   },
-  models: [],
+  models: [Membership],
   logging: true,
 };
 

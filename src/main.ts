@@ -16,7 +16,6 @@ async function bootstrap() {
   app.enableVersioning({ type: VersioningType.URI });
   app.setGlobalPrefix('api');
 
-  // app.useGlobalInterceptors(new timeoutInterceptor());
 
   app.useGlobalPipes(new ValidationPipe());
 

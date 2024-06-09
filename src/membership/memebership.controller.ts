@@ -9,6 +9,8 @@ import {
   DefaultValuePipe,
   ParseIntPipe,
   Query,
+  HttpStatus,
+  HttpCode,
 } from '@nestjs/common';
 import { MembershipService } from './memebership.service';
 import { UpdateMembershipDto } from './dto/update-memebership.dto';
@@ -18,11 +20,12 @@ import { Membership } from './entities/memebership.entity';
 import { CreateMembershipDto } from './dto/create-memebership.dto';
 
 @ApiTags('memberships')
-@Controller('memberships')
+@Controller({ version: '1', path: 'memberships' })
 export class MembershipController {
   constructor(private readonly membershipService: MembershipService) {}
 
   @Post('/')
+  @HttpCode(HttpStatus.CREATED)
   async create(
     @Body() createMembershipDto: CreateMembershipDto,
   ): Promise<ApiResponse<Membership>> {

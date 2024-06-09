@@ -58,16 +58,80 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+# Sequelize Migrations and Seeds Management
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+This repository contains Sequelize migration and seed management scripts for database management.
 
-## Stay in touch
+### Create a Migration:
+- To create a new migration, run:
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+npm run migration:create --name <migration_name>
+```
 
-## License
+### Run a Migration:
 
-Nest is [MIT licensed](LICENSE).
+- Run Migrations:
+  To apply all pending migrations, run:
+```bash
+npm run migration:run
+```
+
+### Undo Migrations:
+- To revert the last applied migration, run:
+```bash
+npm run migration:undo
+```
+
+- To revert all applied migrations, run:
+```bash
+npm run migration:undo-all
+```
+
+- To revert a specific migration by name, run:
+
+```bash
+npm run migration:undo:name -- --name <migration_name>
+```
+
+- To revert migrations up to a specific migration, run:
+```bash
+npm run migration:undo:to -- --to <migration_name>
+```
+
+## Seeds
+- Generate Seed Data:
+  To create a new seed file, run:
+```bash
+npm run seed:generate -- --name <seed_name>
+```
+
+- Run Seeds:
+
+To apply all seed data, run:
+```bash
+npm run seed:run
+```
+
+
+Undo Seeds:
+- To revert the last applied seed, run:
+
+```bash
+npm run seed:undo
+```
+
+- To revert all applied seeds, run:
+
+```bash
+npm run seed:undo:all
+```
+
+- To revert a specific seed by name, run:
+
+```
+bash npm run seed:undo:name -- --name <seed_name>
+```
+
+### Note:
+Replace <migration_name> and <seed_name> with the desired names for your migrations and seed files, respectively.

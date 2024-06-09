@@ -19,7 +19,7 @@ import {
   createApiResponse,
 } from '../interfaces/responses/create-api-response';
 import { UpdateMembershipDto } from './dto/update-memebership.dto';
-import {Op} from "sequelize";
+import { Op } from 'sequelize';
 
 @Injectable()
 export class MembershipService {

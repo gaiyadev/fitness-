@@ -12,10 +12,11 @@ export class MembershipCron {
     private eventEmitter: EventEmitter2,
   ) {}
 
-  @Cron(CronExpression.EVERY_SECOND)
+  @Cron(CronExpression.EVERY_30_SECONDS)
   async handleCron() {
     const dueMemberships = await this.membershipService.findDueMemberships();
     for (const membership of dueMemberships) {
+      console.log(membership);
       const templateData = {
         firstName: membership.firstName,
         isFirstMonth: membership.isFirstMonth,
@@ -26,10 +27,10 @@ export class MembershipCron {
         invoiceLink: membership.invoiceLink,
       };
       //
-      // this.eventEmitter.emit(
-      //   membershipReminder,
-      //   new MembershipRememberEvent(templateData, membership.email),
-      // );
+      this.eventEmitter.emit(
+        membershipReminder,
+        new MembershipRememberEvent(templateData, membership.email),
+      );
     }
   }
 }
