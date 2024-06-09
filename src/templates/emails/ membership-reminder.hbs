@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: left;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <p>Dear {{firstName}},</p>
+    <p>This is a reminder for your upcoming payment for the Fitness+ {{membershipType}} membership. Your due date is {{dueDate}}.</p>
+    {{#if isFirstMonth}}
+        <p>Your first payment includes the annual membership fee of ${{totalAmount}} and the first month's add-on services fee of ${{monthlyAmount}}.</p>
+    {{else}}
+        <p>Your monthly add-on services fee is ${{monthlyAmount}}.</p>
+    {{/if}}
+    <p>Please visit the following link to view your invoice: <a href="{{invoiceLink}}">{{invoiceLink}}</a></p>
+    <p>Thank you,</p>
+    <p>Fitness+ Team</p>
+</div>
+</body>
+</html>
